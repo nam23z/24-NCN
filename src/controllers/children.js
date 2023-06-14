@@ -21,21 +21,51 @@ const getAllChildren = (req, res) => {
     res.send(myObjects)
 }
 
-const getChildrenByCountry = (req, res) => {
-    const searchCountry = req.query.country;
-    
-    var result = myObjects.filter( (children) => {
-        if(children.country.toLowerCase().indexOf(searchCountry.toLowerCase()) !== -1){
-            // res.send(children);
-            console.log(children);
-        }
-    })
-    // res.send();
-    console.log(result);
+const getDataByCountry = (req, res, next) => {
+
+    //search 1
+    // try{
+
+    //     const searchCountry = req.query;
+        
+    //     const filteredCountry = myObjects.filter((info) => {
+    //         let isValid = true;
+    //         for(key in searchCountry){
+    //             isValid = isValid && info[key] === searchCountry[key];
+    //         }
+    //         return isValid;
+    //     });
+
+    //     res.json({data : filteredCountry});
+    //     console.log(json({data : filteredCountry}));
+
+    // }catch(err){
+    //     res.send(err.message)
+    // }
+    // console.log(myObjects.children[0].children[0]);
+    // return;
+    //Search 2
+    const children = myObjects.children[0].children[0].children.find(m => console.log(m.children)  );
+
+    if(!children) {
+        return next(`Country ${country} does not exist`)
+    }
+    res.json(children);
+    //search 3
+    // const searchCountry = req.query
+    // var result = myObjects.filter( (children) => {
+    //     if(children.country.toLowerCase().indexOf(searchCountry.toLowerCase()) !== -1){
+    //         // res.send(children);
+    //         console.log(children.value);
+    //     }
+    // })
+    // // res.send();
+    // console.log(result);
+    // return;
 }
 
 module.exports = {
     sendData,
     getAllChildren,
-    getChildrenByCountry
+    getDataByCountry
 }
