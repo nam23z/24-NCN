@@ -24,12 +24,27 @@ const getUserByNameAndCountry = (req, res) => {
         country: queryObj.country
     });
 }
+const validate = (req, res, next) => {
+    const {username, password} = req.body;
+    if(username === undefined || username === ""){
+        next("username is required");
+    }
+    if(password === undefined || password === ""){
+        next("password is required");
+    }
+    if(username.length > 20 ){
+        next("username is not greater than 20 letters");
+    }
+    if(password.length > 8){
+        next("password is not greater than 8 letters");
+    }
+    next();
+}
 
 const createUser = (req, res) => {
     const ManyUser = req.body;
     res.send(ManyUser);
 }
-
 
 const jsonReader = (filePath, cb) => {
     fs.readFile(filePath, 'utf-8', (err, fileData) => {
@@ -70,10 +85,12 @@ const sendData = (req, res) => {
 }
 
 
+
 module.exports = {
     getAllUsers,
     getUserById,
     getUserByNameAndCountry,
     createUser,
-    sendData
+    sendData,
+    validate
 };
