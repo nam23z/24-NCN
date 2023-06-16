@@ -10,7 +10,7 @@ router.get('/users/:id', userControllers.getUserById);
 
 router.get('/search', userControllers.getUserByNameAndCountry);
 
-router.post('/users', userControllers.createUser);
+router.post('/users', userControllers.validate , userControllers.createUser);
 
 
 router.post('/datas', userControllers.sendData);
