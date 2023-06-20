@@ -23,8 +23,4 @@ public class Exercise1 {
         System.out.println(float1);
 
     }
-
-    static void fun(){
-        System.out.println();
-    }
 }
