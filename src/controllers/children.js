@@ -17,7 +17,7 @@ const sendData = (req, res) => {
 }
 
 const getAllChildren = (req, res) => {
-    res.send(myObjects)
+    res.send(database)
 }
 
 const getDataByCountry = (req, res) => {
