@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Exercise3 {
+public class Exercise3Linked {
     public static void main(String[] args) {
         LinkedList<String> left = new LinkedList<>(List.of("a","b","c"));
         ArrayList<String> Right = new ArrayList<>();

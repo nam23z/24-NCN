@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Exercise1 {
+public class Exercise1Linked {
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>(List.of("mid"));
 

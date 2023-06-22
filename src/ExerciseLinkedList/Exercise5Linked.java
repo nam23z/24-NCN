@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Exercise5 {
+public class Exercise5Linked {
     public static void main(String[] args) {
         LinkedList<String> arr = new LinkedList<>(List.of("a","b","c"));
         replace(arr, 0, "x");
